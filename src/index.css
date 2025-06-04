@@ -68,8 +68,3 @@ h6 {
   --default-fonts: system-ui, "Segoe UI", Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
-
-#root {
-  height: 100%;
-  width: 100vw;
-}
