@@ -1,0 +1,71 @@
+.homeWrapper {
+  height: 100vh;
+	background: linear-gradient(rgb(18, 153, 144), rgb(144, 209, 202));
+  position: relative;
+}
+
+.mainWrapper {
+	display: flex;
+	align-items: center;
+	font-family: "Chivo", "Tinos", var(--default-fonts);
+}
+
+.homeHero {
+	display: flex;
+	flex-direction: column;
+	padding: 3em;
+  margin-top: 3em;
+  z-index: 1;
+}
+
+.homeHero h1 {
+	font-size: 6rem;
+	text-transform: uppercase;
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.homeHero h1:first-child {
+	color: white;
+}
+
+.homeHero h1:nth-child(2) {
+	color: rgb(0, 50, 50);
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.homeHero p {
+  color: rgb(0, 50, 50);
+	font-size: 1.4rem;
+  margin-bottom: 1em;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.homeHero a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 50, 50);
+	text-decoration: none;
+  padding: 0.2em;
+  border: 2px solid rgb(0, 50, 50);
+  width: 200px;
+  height: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-radius 0.35s ease-out, background-color 0.35s ease-out, color 0.35s ease-out;
+}
+
+.homeHero a:hover {
+  border-radius: 2em;
+  background-color: rgb(0, 50, 50);
+  color: white;
+}
+
+.mainWrapper img {
+  position: absolute;
+  height: 800px;
+  width: auto;
+  bottom: 0;
+  right: 3em;
+}
