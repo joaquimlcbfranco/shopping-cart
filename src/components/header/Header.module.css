@@ -1,0 +1,47 @@
+.navBar {
+	display: flex;
+	align-items: center;
+	padding: 1.5em;
+	font-size: 1.2rem;
+	border: 2px solid;
+	font-family: "Chivo", "Tinos", var(--default-fonts);
+	position: relative;
+}
+
+.navBarLeft {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+}
+
+.navBarRight {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	position: absolute;
+	right: 1.5em;
+}
+
+ul,
+li {
+	display: flex;
+	list-style-type: none;
+	gap: 0.5em;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+}
+
+@media (max-width: 600px) {
+  .navBarRight {
+    right: 1em;
+  }
+  
+  .navBarRight li {
+    display: none;
+  }
+
+}
