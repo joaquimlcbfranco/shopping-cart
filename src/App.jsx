@@ -1,9 +1,10 @@
 import appStyles from "./App.module.css";
+import Home from "./routes/home/Home.jsx"
 
-function App() {
+const App = () => {
   return (
     <div className={appStyles.appWrapper}>
-      
+      <Home />
     </div>
   )
 }
