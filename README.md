@@ -1,12 +1,13 @@
-# React + Vite
+# Shopping Application
+<br>
+This shopping app helped me consolidate my knowledge of React routers, links and hooks like useState and useEffect. 
+<br>
+Also learned to keep track of the fetching status and present either a loading or error status based on the response.
+<br>
+Lastly, I used CSS modules to locally style my components and routes. That helped keep the folder structure organized and readable.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Credits
+<br>
+Homepage image: https://www.freepik.com/free-psd/metallic-thermos-container-isolated_170664928.htm#fromView=search&page=1&position=0&uuid=05aeead0-fad7-4b8d-945a-b7ab405d27c8&query=thermos+png?sign-up=google
+<br>
+FakeStore API: https://fakestoreapi.com/
