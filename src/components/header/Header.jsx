@@ -1,13 +1,14 @@
 import styles from "./Header.module.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 	return (
 		<header className={styles.navBar}>
 			<div className={styles.navBarLeft}>
 				<ul>
-					<li><a href="/">Home</a></li>
+					<li><Link to="/">Home</Link></li>
           <span></span>
-					<li><a href="/">Catalog</a></li>
+					<li><Link to="catalog">Catalog</Link></li>
 				</ul>
 			</div>
 			<div className={styles.navBarRight}>
