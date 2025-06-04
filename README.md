@@ -4,7 +4,7 @@ This shopping app helped me consolidate my knowledge of React routers, links and
 <br>
 Also learned to keep track of the fetching status and present either a loading or error status based on the response.
 <br>
-Lastly, I used CSS modules to locally style my components and routes. That helped keep the folder structure organized and readable.
+Lastly, I used CSS modules to locally style my components and routes, which helped keep the folder structure organized and readable.
 
 # Credits
 <br>
