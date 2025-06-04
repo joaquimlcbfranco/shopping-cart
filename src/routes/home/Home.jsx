@@ -1,12 +1,22 @@
-import Header from "../../components/header/Header.jsx"
+import Header from "../../components/header/Header.jsx";
+import styles from "./Home.module.css";
+import product from "../../assets/product.png"
 
 const Home = () => {
-  return (<>
-    <Header />
-    <main>
-      
-    </main>
-  </>)
-}
+	return (
+		<div className={styles.homeWrapper}>
+			<Header />
+			<main className={styles.mainWrapper}>
+				<div className={styles.homeHero}>
+					<h1>Where convenience</h1>
+					<h1>Meets choice</h1>
+					<p>Your first stop for online shopping</p>
+					<a href="/">Catalog</a>
+				</div>
+        <img src={product} alt="example of website products"></img>
+			</main>
+		</div>
+	);
+};
 
 export default Home;
