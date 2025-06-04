@@ -1,12 +1,15 @@
-.homeWrapper {
+.wrapper {
   height: 100vh;
 	background: linear-gradient(rgb(18, 153, 144), rgb(144, 209, 202));
   position: relative;
 }
 
 .mainWrapper {
+  width: 100%;
+  max-width: 1400px;
 	display: flex;
 	align-items: center;
+  align-self: flex-start;
 	font-family: "Chivo", "Tinos", var(--default-fonts);
 }
 

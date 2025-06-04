@@ -4,7 +4,7 @@ import product from "../../assets/product.png"
 
 const Home = () => {
 	return (
-		<div className={styles.homeWrapper}>
+		<div className={styles.wrapper}>
 			<Header />
 			<main className={styles.mainWrapper}>
 				<div className={styles.homeHero}>
