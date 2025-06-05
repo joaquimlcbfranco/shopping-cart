@@ -37,8 +37,12 @@ const Card = () => {
 					></input>
 					<button onClick={increaseQuantity}>+</button>
 				</div>
-				<div className={styles.addCart}>
-					<button>+</button>
+				<div>
+					<button
+						className={styles.btn}
+					>
+						Add to cart
+					</button>
 				</div>
 			</div>
 		</div>
