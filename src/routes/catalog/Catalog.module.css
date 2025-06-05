@@ -1,6 +1,5 @@
 .wrapper {
 	font-family: "Chivo", "Tinos", var(--default-fonts);
-	height: 100vh;
 	background: linear-gradient(
 		rgba(18, 153, 144, 0.3),
 		rgba(144, 209, 202, 0.2)
@@ -19,8 +18,13 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
-	max-width: 1000px;
-	border: 1px solid;
+	max-width: 1400px;
 	display: flex;
 	justify-content: center;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(auto-fit, 1fr);
 }
