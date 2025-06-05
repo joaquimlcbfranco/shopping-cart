@@ -19,8 +19,11 @@ const Card = () => {
 	return (
 		<div className={styles.card}>
 			<div className={styles.image}></div>
+			<div className={styles.price}>
+				<p>$42</p>
+			</div>
 			<div className={styles.title}>
-				<h2>Sample Product</h2>
+				<h2>WD 2TB Elements Portable External Hard Drive - USB 3.0</h2>
 			</div>
 			<div className={styles.shopActions}>
 				<div className={styles.controls}>
@@ -38,11 +41,7 @@ const Card = () => {
 					<button onClick={increaseQuantity}>+</button>
 				</div>
 				<div>
-					<button
-						className={styles.btn}
-					>
-						Add to cart
-					</button>
+					<button className={styles.btn}>Add to cart</button>
 				</div>
 			</div>
 		</div>
