@@ -7,9 +7,9 @@ const Catalog = () => {
 		<div className={styles.wrapper}>
 			<Header />
       <div className={styles.title}>
-        <span><h1>All items <p>[37]</p></h1></span>
+        <p>The ultimate catalog for every occasion</p>
       </div>
-      <div>
+      <div className={styles.cardsWrapper}>
         <Card />
       </div>
 		</div>
