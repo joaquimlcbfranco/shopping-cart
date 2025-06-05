@@ -2,26 +2,44 @@ import styles from "./Card.module.css";
 import { useState } from "react";
 
 const Card = () => {
-  const [quantity, setQuantity] = useState(0);
+	const [quantity, setQuantity] = useState(0);
 
-  const handleChange = (e) => {
-    setQuantity(e.target.value);
-  }
+	const handleChange = (e) => {
+		setQuantity(e.target.value);
+	};
+
+	const increaseQuantity = () => {
+		setQuantity((prevQuantity) => +prevQuantity + 1);
+	};
+
+	const decreaseQuantity = () => {
+		setQuantity((prevQuantity) => +prevQuantity - 1);
+	};
 
 	return (
 		<div className={styles.card}>
 			<div className={styles.image}></div>
-			<div>
-				<button></button>
-				<input
-					type="number"
-					placeholder="Quantity"
-					name="quantity"
-					min="0"
-					value={quantity}
-          onChange={(e) => handleChange(e)}
-				></input>
-				<button></button>
+			<div className={styles.title}>
+				<h2>Sample Product</h2>
+			</div>
+			<div className={styles.shopActions}>
+				<div className={styles.controls}>
+					<button onClick={decreaseQuantity}>-</button>
+					<input
+						type="text"
+						placeholder=" "
+						name="quantity"
+						min="0"
+						value={quantity}
+						onChange={(e) => handleChange(e)}
+						className={styles.input}
+						pattern="^[0-9]*$"
+					></input>
+					<button onClick={increaseQuantity}>+</button>
+				</div>
+				<div className={styles.addCart}>
+					<button>+</button>
+				</div>
 			</div>
 		</div>
 	);
