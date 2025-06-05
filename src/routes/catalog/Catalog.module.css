@@ -1,0 +1,10 @@
+.wrapper {
+	height: 100vh;
+	background: linear-gradient(
+		rgba(18, 153, 144, 0.3),
+		rgba(144, 209, 202, 0.2)
+	);
+}
+
+.title {
+}
