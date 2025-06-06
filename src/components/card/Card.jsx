@@ -1,7 +1,7 @@
 import styles from "./Card.module.css";
 import { useState } from "react";
 
-const Card = () => {
+const Card = ({ title, price, url, loading, error, handleQuantity }) => {
 	const [quantity, setQuantity] = useState(0);
 
 	const handleChange = (e) => {
@@ -18,12 +18,22 @@ const Card = () => {
 
 	return (
 		<div className={styles.card}>
-			<div className={styles.image}></div>
+			<div
+				style={{
+					backgroundImage: `url(${url})`,
+					width: "100%",
+					height: "250px",
+					backgroundRepeat: "no-repeat",
+					backgroundPosition: "center",
+					backgroundSize: "150px",
+          borderRadius: "5px 5px 0 0",
+				}}
+			></div>
 			<div className={styles.price}>
 				<p>$42</p>
 			</div>
 			<div className={styles.title}>
-				<h2>WD 2TB Elements Portable External Hard Drive - USB 3.0</h2>
+				<h2>{title}</h2>
 			</div>
 			<div className={styles.shopActions}>
 				<div className={styles.controls}>
