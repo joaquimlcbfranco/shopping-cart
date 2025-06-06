@@ -4,18 +4,10 @@
 	background: linear-gradient(rgb(220, 220, 220), rgb(255, 255, 255));
 }
 
-.relativeWrapper {
-	width: 1400px;
-	height: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
-}
-
 .mainWrapper {
 	height: 80%;
 	width: 100%;
-	max-width: 1400px;
+  max-width: 1600px;
 	display: flex;
 	align-items: center;
 	margin-left: auto;
@@ -26,6 +18,7 @@
 .homeHero {
 	display: flex;
 	flex-direction: column;
+  margin-top: 3em;
 	padding: 3em;
 	z-index: 1;
 }
@@ -80,5 +73,5 @@
 	height: 800px;
 	width: auto;
 	bottom: 0;
-	right: 3em;
+	right: 10em;
 }
