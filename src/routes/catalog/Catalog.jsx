@@ -8,6 +8,17 @@ const Catalog = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
+	const handleQuantity = (id, value) => {
+		setItems(
+			items.map((item) => {
+				if (item.id === id) {
+					return { ...item, quantity: value };
+				}
+				return item;
+			})
+		);
+	};
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -20,14 +31,17 @@ const Catalog = () => {
 					);
 				}
 				const jsonData = await data.json();
+				console.log(jsonData);
 				const dataArray = jsonData.map((item) => {
 					return {
+						id: item.id,
 						title: item.title,
 						price: item.price,
-						quantity: 0
+						quantity: 0,
+						url: item.image,
 					};
 				});
-        setItems(dataArray);
+				setItems(dataArray);
 			} catch (error) {
 				setError(error);
 				setItems([]);
@@ -47,18 +61,19 @@ const Catalog = () => {
 			</div>
 			<div className={styles.cardsWrapper}>
 				<div className={styles.cardsGrid}>
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
-					<Card />
+					{items.map((item) => {
+						return (
+							<Card
+								key={item.id}
+								id={item.id}
+								title={item.title}
+                url={item.url}
+								loading={loading}
+								error={error}
+								handleQuantity={handleQuantity}
+							/>
+						);
+					})}
 				</div>
 			</div>
 		</div>
