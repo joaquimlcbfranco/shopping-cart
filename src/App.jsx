@@ -1,12 +1,12 @@
 import appStyles from "./App.module.css";
-import Home from "./routes/home/Home.jsx"
+import { Outlet } from "react-router-dom";
 
 const App = () => {
-  return (
-    <div className={appStyles.appWrapper}>
-      <Home />
-    </div>
-  )
-}
+	return (
+		<div className={appStyles.appWrapper}>
+      <Outlet />
+		</div>
+	);
+};
 
-export default App
+export default App;
