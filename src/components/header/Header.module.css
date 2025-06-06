@@ -1,5 +1,4 @@
 .headerWrapper {
-	max-width: 1400px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -10,7 +9,7 @@
 	font-size: 1.3rem;
 	padding-top: 1.5em;
 	font-family: "Chivo", "Tinos", var(--default-fonts);
-	position: relative;
+	
 	color: rgb(1, 49, 49);
 }
 
@@ -24,6 +23,8 @@
 .navBarRight {
 	display: flex;
 	align-items: center;
+	position: absolute;
+	right: 3em;
 }
 
 ul,
