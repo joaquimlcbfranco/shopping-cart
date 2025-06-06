@@ -1,14 +1,33 @@
+.loader {
+	width: 100px;
+	height: 100px;
+	border: 5px solid #fff;
+	border-bottom-color: #ff3d00;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+  z-index: 1;
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 .wrapper {
 	font-family: "Chivo", "Tinos", var(--default-fonts);
-	background: linear-gradient(
-		rgba(18, 153, 144, 0.3),
-		rgba(144, 209, 202, 0.2)
-	);
+	background: rgb(242, 243, 244);
 }
 
 .title {
-	font-size: 1.6rem;
-  font-weight: 500;
+  color: rgb(1, 49, 49);
+	font-size: 1.8rem;
+	font-weight: 500;
 	text-align: center;
 	margin-top: 1.5em;
 	margin-bottom: 1.5em;
@@ -24,7 +43,7 @@
 }
 
 .cardsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(auto-fit, 1fr);
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(auto-fit, 1fr);
 }
