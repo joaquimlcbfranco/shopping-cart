@@ -1,7 +1,7 @@
 import styles from "./Card.module.css";
 import { useState } from "react";
 
-const Card = ({ id, title, price, url, loading, error, handleQuantity }) => {
+const Card = ({ id, title, price, url, handleQuantity }) => {
 	const [quantity, setQuantity] = useState(0);
 
 	const handleChange = (e) => {
