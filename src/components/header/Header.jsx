@@ -12,7 +12,7 @@ const Header = () => {
 						</li>
 						<span></span>
 						<li>
-							<Link className={styles.headerLinks} to="catalog">Catalog</Link>
+							<Link className={styles.headerLinks} to="/catalog">Catalog</Link>
 						</li>
 					</ul>
 				</div>
