@@ -1,4 +1,5 @@
 import Header from "../../components/header/Header.jsx";
+import ErrorPage from "../error-page/ErrorPage.jsx";
 import styles from "./Catalog.module.css";
 import Card from "../../components/card/Card.jsx";
 import { useState, useEffect } from "react";
@@ -31,7 +32,6 @@ const Catalog = () => {
 					);
 				}
 				const jsonData = await data.json();
-				console.log(jsonData);
 				const dataArray = jsonData.map((item) => {
 					return {
 						id: item.id,
@@ -53,6 +53,18 @@ const Catalog = () => {
 		fetchData();
 	}, []);
 
+	if (loading) {
+		return (
+			<div className={styles.loadingWrapper}>
+				<span className={styles.loader}></span>
+			</div>
+		);
+	}
+
+	if (error) {
+		return <ErrorPage />;
+	}
+
 	return (
 		<div className={styles.wrapper}>
 			<Header />
@@ -67,7 +79,8 @@ const Catalog = () => {
 								key={item.id}
 								id={item.id}
 								title={item.title}
-                url={item.url}
+								price={item.price}
+								url={item.url}
 								loading={loading}
 								error={error}
 								handleQuantity={handleQuantity}
