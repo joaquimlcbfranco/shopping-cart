@@ -32,13 +32,13 @@ const Cart = ({ cart, setCart }) => {
 					})}
 				{!cart && (
 					<h1 className={styles.emptyCart}>
-						Looks like your cart is empty
+						Your cart is empty
 					</h1>
 				)}
 			</div>
 			<div className={styles.cartBottom}>
 				<div className={styles.subTotal}>
-					<p>Subtotal</p>
+					<p>Total</p>
 					<p>${subTotal}</p>
 				</div>
 				<button>Checkout</button>
