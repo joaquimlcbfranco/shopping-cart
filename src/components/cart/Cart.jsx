@@ -23,7 +23,6 @@ const Cart = ({ cart, setCart }) => {
 								title={item.title}
 								quantity={item.quantity}
 								unitPrice={item.unitPrice}
-								price={item.price}
 								url={item.url}
 								cart={cart}
 								setCart={setCart}
@@ -39,7 +38,7 @@ const Cart = ({ cart, setCart }) => {
 			<div className={styles.cartBottom}>
 				<div className={styles.subTotal}>
 					<p>Total</p>
-					<p>${subTotal}</p>
+					<p>${Math.round(subTotal * 100) / 100}</p>
 				</div>
 				<button>Checkout</button>
 			</div>
@@ -52,7 +51,6 @@ const CartItem = ({
 	title,
 	quantity,
 	unitPrice,
-	price,
 	url,
 	cart,
 	setCart,
@@ -73,13 +71,17 @@ const CartItem = ({
 		}
 	};
 
+  const removeItem = () => {
+    setCart(cart.filter(item => item.id !== id))
+  }
+
   useEffect(() => {
-    
-  }, [cart])
+    setText(quantity);
+  }, [quantity])
 
 	return (
 		<div className={styles.item}>
-			<button className={styles.removeItem} title="Remove item">
+			<button onClick={removeItem} className={styles.removeItem} title="Remove item">
 				&#x2715;
 			</button>
 			<div
