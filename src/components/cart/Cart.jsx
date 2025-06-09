@@ -1,128 +1,87 @@
 import styles from "./Cart.module.css";
 
-const Cart = () => {
+const Cart = ({ cart, setCart }) => {
+	const handleChange = (e) => {
+		setQuantity(e.target.value);
+	};
+
+	const cartSubTotal = cart !== null ? cart.reduce((item, total) => {
+			total += item.price;
+			return total.price;
+	}, 0) : 0;
+	console.log(cartSubTotal);
+
 	return (
 		<div className={styles.cartWrapper}>
 			<div aria-label="close-button" className={styles.closeCart}>
-        <p>Close</p>
+				<p>Close</p>
 			</div>
 			<div className={styles.items}>
-				<div className={styles.item}>
-					<div
-						style={{
-							backgroundImage:
-								"url(https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg)",
-							backgroundRepeat: "no-repeat",
-							backgroundPosition: "center",
-							backgroundSize: "70px",
-						}}
-						aria-label="image of product"
-						className={styles.productImg}
-					><button className={styles.removeItem}>&#x2715;</button></div>
-					<div className={styles.info}>
-						<p>
-							John Hardy Women's Legends Naga Gold & Silver Dragon
-							Station Chain Bracelet aosdo gokwe
-						</p>
-						<div className={styles.amount}>
-							<div className={styles.controls}>
-                <label htmlFor="cart-quantity">Qty: </label>
-								<input
-                id="cart-quantity"
-									type="text"
-									placeholder=" "
-									name="quantity"
-									min="0"
-									value={"10"}
-                  readOnly
-									className={styles.input}
-									pattern="^[0-9]*$"
-								></input>
-							</div>
-							<p>Price: $695</p>
-						</div>
-					</div>
+				{cart !== null &&
+					cart.map((item) => {
+						return (
+							<CartItem
+								key={item.id}
+								id={item.id}
+								title={item.title}
+								quantity={item.quantity}
+								unitPrice={item.unitPrice}
+								price={item.price}
+								url={item.url}
+							/>
+						);
+					})}
+				{!cart && (
+					<h1 className={styles.emptyCart}>
+						Looks like your cart is empty
+					</h1>
+				)}
+			</div>
+			<div className={styles.cartBottom}>
+				<div className={styles.subTotal}>
+					<p>Subtotal</p>
+					<p>{"$" + cartSubTotal}</p>
 				</div>
-        <div className={styles.item}>
-					<div
-						style={{
-							backgroundImage:
-								"url(https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg)",
-							backgroundRepeat: "no-repeat",
-							backgroundPosition: "center",
-							backgroundSize: "70px",
-						}}
-						aria-label="image of product"
-						className={styles.productImg}
-					><button className={styles.removeItem}>&#x2715;</button></div>
-					<div className={styles.info}>
-						<p>
-							John Hardy Women's Legends Naga Gold & Silver Dragon
-							Station Chain Bracelet aosdo gokwe
-						</p>
-						<div className={styles.amount}>
-							<div className={styles.controls}>
-                <label htmlFor="cart-quantity">Qty: </label>
-								<input
-                id="cart-quantity"
-									type="text"
-									placeholder=" "
-									name="quantity"
-									min="0"
-									value={"10"}
-									readOnly
-									className={styles.input}
-									pattern="^[0-9]*$"
-								></input>
-							</div>
-							<p>Price: $695</p>
-						</div>
+				<button>Checkout</button>
+			</div>
+		</div>
+	);
+};
+
+const CartItem = ({ id, title, quantity, unitPrice, price, url }) => {
+	return (
+		<div className={styles.item}>
+			<div
+				style={{
+					backgroundImage: `url(${url})`,
+					backgroundRepeat: "no-repeat",
+					backgroundPosition: "center",
+				}}
+				aria-label="image of product"
+				className={styles.productImg}
+			>
+				<button className={styles.removeItem}>&#x2715;</button>
+			</div>
+			<div className={styles.info}>
+				<p>{title}</p>
+				<div className={styles.amount}>
+					<div className={styles.controls}>
+						<label htmlFor="cart-quantity">Qty: </label>
+						<input
+							id="cart-quantity"
+							type="text"
+							placeholder=" "
+							name="quantity"
+							min="0"
+							value={quantity}
+							readOnly
+							className={styles.input}
+							pattern="^[0-9]*$"
+						></input>
 					</div>
-				</div>
-        <div className={styles.item}>
-					<div
-						style={{
-							backgroundImage:
-								"url(https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg)",
-							backgroundRepeat: "no-repeat",
-							backgroundPosition: "center",
-							backgroundSize: "70px",
-						}}
-						aria-label="image of product"
-						className={styles.productImg}
-					><button className={styles.removeItem}>&#x2715;</button></div>
-					<div className={styles.info}>
-						<p>
-							John Hardy Women's Legends Naga Gold & Silver Dragon
-							Station Chain Bracelet aosdo gokwe
-						</p>
-						<div className={styles.amount}>
-							<div className={styles.controls}>
-                <label htmlFor="cart-quantity">Qty: </label>
-								<input
-                id="cart-quantity"
-									type="text"
-									placeholder=" "
-									name="quantity"
-									min="0"
-									value={"10"}
-									readOnly
-									className={styles.input}
-									pattern="^[0-9]*$"
-								></input>
-							</div>
-							<p>Price: $695</p>
-						</div>
-					</div>
+					<p>Price: ${price * quantity}</p>
 				</div>
 			</div>
-      <div className={styles.cartBottom}>
-        <div className={styles.subTotal}>
-            <p>Subtotal</p>
-            <p>$980</p>
-        </div>
-        <button>Checkout</button>
-      </div>
 		</div>
 	);
 };
