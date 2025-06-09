@@ -1,11 +1,21 @@
+.emptyCart {
+  padding: 3em 1em;
+  font-size: 0.8rem;
+  font-family: "Chivo", "Tinos", sans-serif;
+  text-transform: uppercase;
+  color: rgba(1, 50, 50, 0.5);
+  text-align: center;
+}
+
 .cartWrapper {
+  opacity: 100%;
 	position: absolute;
 	top: 0;
 	right: 0;
 	background-color: rgb(255 255 255);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	height: 100%;
-	width: 30%;
+	width: 28%;
 	z-index: 1;
 	color: white;
 	font-family: "Tinos", "Chivo", sans-serif;
@@ -44,10 +54,11 @@
 }
 
 .item .productImg {
-  flex: 1;
-  min-width: 100px;
-	height: 100px;
+  height: 90px;
+  width: 90px;
 	position: relative;
+  background-size: 50px;
+  margin-right: 2em;
 }
 
 .productImg .removeItem {
@@ -87,6 +98,7 @@
 .info {
 	display: flex;
 	flex-direction: column;
+  width: 100%;
 }
 
 .item .info p:first-child {
