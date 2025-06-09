@@ -6,10 +6,11 @@
 .navBar {
 	display: flex;
 	align-items: center;
-	font-size: 1.3rem;
+	font-size: 1.1rem;
+	text-transform: uppercase;
+	font-weight: 300;
 	padding-top: 1.5em;
 	font-family: "Chivo", "Tinos", var(--default-fonts);
-	
 	color: rgb(1, 49, 49);
 }
 
@@ -34,7 +35,7 @@ li {
 	gap: 0.5em;
 }
 
-.headerLinks {
+.headerLinks {	
 	text-decoration: none;
 	color: rgb(1, 49, 49);
 	position: relative;
