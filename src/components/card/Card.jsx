@@ -24,10 +24,10 @@ const Card = ({ id, title, price, url, cart, setCart }) => {
 				setCart(
 					cart.map((item) => {
 						if (item.id === id) {
-							const currQuantity = item.quantity;
+							const currQuantity = +item.quantity;
 							return {
 								...item,
-								quantity: currQuantity + quantity,
+								quantity: +currQuantity + +quantity,
 							};
 						}
 						return item;
