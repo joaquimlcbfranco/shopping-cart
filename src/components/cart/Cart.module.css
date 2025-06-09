@@ -26,7 +26,8 @@
 	padding: 1em;
 	text-transform: uppercase;
 	font-family: "Chivo", "Tinos", sans-serif;
-	border-bottom: 2px solid rgba(1, 50, 50, 1);
+	border-bottom: 2px solid rgba(1, 50, 50, 0.7);
+  background-color: rgba(1, 50, 50, 0.1);
 }
 
 .closeCart p {
@@ -56,32 +57,9 @@
 .item .productImg {
   height: 90px;
   width: 90px;
-	position: relative;
   background-size: 50px;
-  margin-right: 2em;
-}
-
-.productImg .removeItem {
-	font-size: 0.9rem;
-	font-weight: 500;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: none;
-	background: none;
-	width: 20px;
-	height: 20px;
-	color: rgb(1, 50, 50);
-	transition: scale 0.2s ease-out;
-	cursor: pointer;
-}
-
-.removeItem:hover {
-	scale: 1.05;
-}
-
-.removeItem:active {
-	scale: 0.9;
+  margin-right: 1em;
+  
 }
 
 .items {
@@ -93,6 +71,28 @@
 	align-items: center;
   border-bottom: 1px solid rgba(1, 50, 50, 0.2);
   padding: 1em;
+  position: relative;
+}
+
+.item .removeItem {
+  color: rgb(1, 50, 50);
+  font-family: "Chivo", "Tinos", sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  padding: 0.5em 1em;
+  transition: scale 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.item .removeItem:hover {
+  scale: 1.05;
+}
+
+.item .removeItem:active {
+  scale: 0.9
 }
 
 .info {
@@ -123,8 +123,10 @@
 	outline: none;
 	margin-left: 0.5em;
 	text-align: center;
-	width: 50px;
+  width: fit-content;
+  max-width: 60px;
 	height: 20px;
+  padding-left: 1em;
 }
 
 .amount p:last-child {
