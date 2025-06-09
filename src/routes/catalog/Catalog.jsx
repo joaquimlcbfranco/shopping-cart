@@ -10,9 +10,7 @@ const Catalog = () => {
 	const [items, setItems] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-  const cartData = useContext(CartContext);
-
-  console.log(cartData.cart);
+	const cartData = useContext(CartContext);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -70,18 +68,21 @@ const Catalog = () => {
 						return (
 							<Card
 								key={item.id}
-                id={item.id}
+								id={item.id}
 								title={item.title}
 								price={item.price}
-								url={item.url} 
-                cart={cartData.cart}
-                setCart={cartData.setCart}
+								url={item.url}
+								cart={cartData.cart}
+								setCart={cartData.setCart}
 							/>
 						);
 					})}
 				</div>
 			</div>
-      <Cart cart={cartData.cart.length !== 0 ? cartData.cart : null} setCart={cartData.cart.length !== 0 ? cartData.setCart : null}/>
+			<Cart
+				cart={cartData.cart.length !== 0 ? cartData.cart : null}
+				setCart={cartData.cart.length !== 0 ? cartData.setCart : null}
+			/>
 		</div>
 	);
 };
