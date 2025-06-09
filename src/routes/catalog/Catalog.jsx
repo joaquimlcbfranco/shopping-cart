@@ -2,12 +2,15 @@ import Header from "../../components/header/Header.jsx";
 import ErrorPage from "../error-page/ErrorPage.jsx";
 import styles from "./Catalog.module.css";
 import Card from "../../components/card/Card.jsx";
-import { useState, useEffect } from "react";
+import Cart from "../../components/cart/Cart.jsx";
+import { useState, useEffect, useContext } from "react";
+import { CartContext } from "../../context/CartContext.jsx";
 
 const Catalog = () => {
 	const [items, setItems] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+  const cartData = useContext(CartContext);
 
 	const handleQuantity = (id, value) => {
 		setItems(
@@ -89,6 +92,7 @@ const Catalog = () => {
 					})}
 				</div>
 			</div>
+      <Cart />
 		</div>
 	);
 };
