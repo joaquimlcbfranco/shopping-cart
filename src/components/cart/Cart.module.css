@@ -1,0 +1,157 @@
+.cartWrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: rgb(255 255 255);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	height: 100%;
+	width: 30%;
+	z-index: 1;
+	color: white;
+	font-family: "Tinos", "Chivo", sans-serif;
+  overflow-y: scroll;
+}
+
+.closeCart {
+	padding: 1em;
+	text-transform: uppercase;
+	font-family: "Chivo", "Tinos", sans-serif;
+	border-bottom: 2px solid rgba(1, 50, 50, 1);
+}
+
+.closeCart p {
+	margin-left: auto;
+	width: fit-content;
+	color: rgb(1, 50, 50);
+	font-size: 0.8rem;
+	cursor: pointer;
+	position: relative;
+}
+
+.closeCart p::after {
+	content: "";
+	bottom: 0;
+	left: 0;
+	width: 0%;
+	height: 1px;
+	background: rgb(1, 50, 50);
+	position: absolute;
+	transition: width 0.2s ease-in-out;
+}
+
+.closeCart p:hover::after {
+	width: 100%;
+}
+
+.item .productImg {
+  flex: 1;
+  min-width: 100px;
+	height: 100px;
+	position: relative;
+}
+
+.productImg .removeItem {
+	font-size: 0.9rem;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	background: none;
+	width: 20px;
+	height: 20px;
+	color: rgb(1, 50, 50);
+	transition: scale 0.2s ease-out;
+	cursor: pointer;
+}
+
+.removeItem:hover {
+	scale: 1.05;
+}
+
+.removeItem:active {
+	scale: 0.9;
+}
+
+.items {
+  flex: 1;
+}
+
+.item {
+	display: flex;
+	align-items: center;
+  border-bottom: 1px solid rgba(1, 50, 50, 0.2);
+  padding: 1em;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+}
+
+.item .info p:first-child {
+	font-size: calc(1rem - 0.3vh);
+	margin-bottom: 1em;
+	color: rgb(1, 50, 50);
+  overflow: hidden;
+	width: 100%;
+}
+
+.item .amount {
+	flex: 1;
+	display: flex;
+	color: rgb(1, 50, 50);
+	font-size: calc(1rem - 0.3vh);
+}
+
+.input {
+	color: rgb(1, 50, 50);
+	background: none;
+	border: 1px solid rgb(1, 50, 50);
+	outline: none;
+	margin-left: 0.5em;
+	text-align: center;
+	width: 50px;
+	height: 20px;
+}
+
+.amount p:last-child {
+	margin-left: auto;
+	font-weight: bold;
+}
+
+.subTotal {
+  font-family: "Chivo", "Tinos", sans-serif;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  color: rgb(1, 50, 50);
+  background-color: rgba(1, 50, 50, 0.1);
+}
+
+.subTotal p:first-child {
+  
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.subTotal p:last-child {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.cartBottom button {
+  width: 100%;
+  border: none;
+  padding: 1em;
+  background-color: rgb(1, 50, 50);
+  color: white;
+  text-transform: uppercase;
+  font-family: "Chivo", "Tinos", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.cartBottom button:hover {
+  background-color: rgba(1, 70, 70);
+}
