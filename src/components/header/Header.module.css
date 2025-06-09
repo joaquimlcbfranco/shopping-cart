@@ -40,6 +40,7 @@ li {
 	color: rgb(1, 49, 49);
 	position: relative;
 	cursor: pointer;
+	z-index: 1;
 }
 
 .headerLinks::after {
