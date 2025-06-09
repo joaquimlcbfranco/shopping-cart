@@ -12,11 +12,6 @@
 	margin: 1em;
 }
 
-.card:hover {
-	transform: translateY(-5px);
-	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
-}
-
 .bottomCard {
   margin-left: 1em;
   flex: 1 0 120px;
@@ -26,6 +21,7 @@
 }
 
 .price p {
+  font-family: "Chivo", "Tinos", sans-serif;
   text-align: start;
 	color: rgb(1, 49, 49);
 	font-weight: bold;
@@ -50,6 +46,7 @@
 }
 
 .controls {
+  height: 30px;
 	display: flex;
 	border: 1px solid rgb(1, 49, 49);
 	align-items: center;
@@ -59,23 +56,11 @@
 		color 0.35s ease-out, scale 0.35s ease-out;
 }
 
-.controls:hover {
-	border-radius: 0.5em;
-	background-color: rgb(1, 49, 49);
-	scale: 1.05;
-}
-
-.controls:hover > input,
-.controls:hover > button {
-	color: white;
-}
-
 .input {
 	color: rgb(1, 49, 49);
 	background: none;
 	border: none;
 	width: 30px;
-	height: 30px;
 	margin: 0;
 	padding: 0;
 	text-align: center;
@@ -83,7 +68,7 @@
 }
 
 .input:focus {
-	outline: 1px solid white;
+	outline: 1px solid rgb(1, 49, 49);
 	box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
@@ -96,7 +81,6 @@
 	color: rgb(1, 49, 49);
 	background: none;
 	width: 25px;
-	height: 25px;
 	border: none;
 	cursor: pointer;
 }
@@ -110,8 +94,7 @@
 .btn {
 	background: none;
 	border: 1px solid rgb(1, 49, 49);
-	/* border-radius: 0.5em; */
-	padding: 0.2em 0.7em;
+  height: 30px;
 	width: 120px;
 	color: rgb(1, 49, 49);
 	transition: border-radius 0.35s ease-out, background-color 0.35s ease-out,
@@ -120,13 +103,10 @@
 }
 
 .btn:hover {
-	border-radius: 0.5em;
 	background-color: rgb(1, 49, 49);
 	color: white;
-	scale: 1.05;
 }
 
 .btn:active {
   background-color: rgba(1, 49, 49, 0.8);
-  scale: 1.02
 }
