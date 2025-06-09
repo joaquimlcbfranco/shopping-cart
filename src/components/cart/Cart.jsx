@@ -1,15 +1,12 @@
+import { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 
 const Cart = ({ cart, setCart }) => {
-	const handleChange = (e) => {
-		setQuantity(e.target.value);
-	};
+	let subTotal = 0;
 
-	const cartSubTotal = cart !== null ? cart.reduce((item, total) => {
-			total += item.price;
-			return total.price;
-	}, 0) : 0;
-	console.log(cartSubTotal);
+  if (cart !== null) {
+    cart.map(item => subTotal += (+item.quantity * +item.unitPrice))
+  }
 
 	return (
 		<div className={styles.cartWrapper}>
@@ -28,6 +25,8 @@ const Cart = ({ cart, setCart }) => {
 								unitPrice={item.unitPrice}
 								price={item.price}
 								url={item.url}
+								cart={cart}
+								setCart={setCart}
 							/>
 						);
 					})}
@@ -40,7 +39,7 @@ const Cart = ({ cart, setCart }) => {
 			<div className={styles.cartBottom}>
 				<div className={styles.subTotal}>
 					<p>Subtotal</p>
-					<p>{"$" + cartSubTotal}</p>
+					<p>${subTotal}</p>
 				</div>
 				<button>Checkout</button>
 			</div>
@@ -48,9 +47,41 @@ const Cart = ({ cart, setCart }) => {
 	);
 };
 
-const CartItem = ({ id, title, quantity, unitPrice, price, url }) => {
+const CartItem = ({
+	id,
+	title,
+	quantity,
+	unitPrice,
+	price,
+	url,
+	cart,
+	setCart,
+}) => {
+	const [text, setText] = useState(quantity);
+
+	const handleChange = (e) => {
+		if (e.target.value !== 0) {
+			setText(e.target.value);
+			setCart(
+				cart.map((item) => {
+					if (item.id === id) {
+						return { ...item, quantity: e.target.value };
+					}
+					return item;
+				})
+			);
+		}
+	};
+
+  useEffect(() => {
+    
+  }, [cart])
+
 	return (
 		<div className={styles.item}>
+			<button className={styles.removeItem} title="Remove item">
+				&#x2715;
+			</button>
 			<div
 				style={{
 					backgroundImage: `url(${url})`,
@@ -59,9 +90,7 @@ const CartItem = ({ id, title, quantity, unitPrice, price, url }) => {
 				}}
 				aria-label="image of product"
 				className={styles.productImg}
-			>
-				<button className={styles.removeItem}>&#x2715;</button>
-			</div>
+			></div>
 			<div className={styles.info}>
 				<p>{title}</p>
 				<div className={styles.amount}>
@@ -69,17 +98,17 @@ const CartItem = ({ id, title, quantity, unitPrice, price, url }) => {
 						<label htmlFor="cart-quantity">Qty: </label>
 						<input
 							id="cart-quantity"
-							type="text"
+							type="number"
 							placeholder=" "
 							name="quantity"
-							min="0"
-							value={quantity}
-							readOnly
+							value={text}
+							onChange={handleChange}
 							className={styles.input}
-							pattern="^[0-9]*$"
+							pattern="^[1-9]*$"
+							min="1"
 						></input>
 					</div>
-					<p>Price: ${price * quantity}</p>
+					<p>{"$" + Math.round(unitPrice * quantity * 100) / 100}</p>
 				</div>
 			</div>
 		</div>
