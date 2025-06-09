@@ -1,9 +1,14 @@
 import Header from "../../components/header/Header.jsx";
 import styles from "./Home.module.css";
 import product from "../../assets/product.png";
+import Cart from "../../components/cart/Cart.jsx";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext.jsx";
 
 const Home = () => {
+	const cartData = useContext(CartContext);
+
 	return (
 		<div className={styles.wrapper}>
 			<Header />
@@ -16,6 +21,7 @@ const Home = () => {
 				</div>
 				<img src={product} alt="example of website products"></img>
 			</main>
+			<Cart cart={cartData.cart.length !== 0 ? cartData.cart : null} setCart={cartData.cart.length !== 0 ? cartData.setCart : null}/>
 		</div>
 	);
 };
