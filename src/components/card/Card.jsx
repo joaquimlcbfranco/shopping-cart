@@ -18,7 +18,7 @@ const Card = ({ id, title, price, url, cart, setCart }) => {
 
 	const handleAddToCart = () => {
 		if (quantity !== 0) {
-			const exists = cart.some(item => item.id === id);
+			const exists = cart.some((item) => item.id === id);
 
 			if (exists) {
 				setCart(
@@ -33,14 +33,50 @@ const Card = ({ id, title, price, url, cart, setCart }) => {
 						return item;
 					})
 				);
-			}
-			else {
+			} else {
 				const itemPrice = quantity * price;
-				setCart([...cart, {id, title, quantity, unitPrice: price, price: itemPrice, url}])
+				setCart([
+					...cart,
+					{
+						id,
+						title,
+						quantity,
+						unitPrice: price,
+						price: itemPrice,
+						url,
+					},
+				]);
 			}
-		}
-		else {
-			console.log("entered, but quantity is 0");
+		} else {
+			const exists = cart.some((item) => item.id === id);
+
+			if (exists) {
+				setCart(
+					cart.map((item) => {
+						if (item.id === id) {
+							const currQuantity = +item.quantity;
+							return {
+								...item,
+								quantity: +currQuantity + 1,
+							};
+						}
+						return item;
+					})
+				);
+			} else {
+				const itemPrice = quantity * price;
+				setCart([
+					...cart,
+					{
+						id,
+						title,
+						quantity: 1,
+						unitPrice: price,
+						price: itemPrice,
+						url,
+					},
+				]);
+			}
 		}
 		setQuantity(0);
 	};
@@ -83,7 +119,12 @@ const Card = ({ id, title, price, url, cart, setCart }) => {
 						<button onClick={increaseQuantity}>+</button>
 					</div>
 					<div>
-						<button className={styles.btn} onClick={handleAddToCart}>Add to cart</button>
+						<button
+							className={styles.btn}
+							onClick={handleAddToCart}
+						>
+							Add to cart
+						</button>
 					</div>
 				</div>
 			</div>
