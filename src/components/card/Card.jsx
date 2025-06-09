@@ -1,7 +1,7 @@
 import styles from "./Card.module.css";
 import { useState } from "react";
 
-const Card = ({ id, title, price, url, handleQuantity }) => {
+const Card = ({ id, title, price, url, cart, setCart }) => {
 	const [quantity, setQuantity] = useState(0);
 
 	const handleChange = (e) => {
@@ -16,6 +16,35 @@ const Card = ({ id, title, price, url, handleQuantity }) => {
 		setQuantity((prevQuantity) => +prevQuantity - 1);
 	};
 
+	const handleAddToCart = () => {
+		if (quantity !== 0) {
+			const exists = cart.some(item => item.id === id);
+
+			if (exists) {
+				setCart(
+					cart.map((item) => {
+						if (item.id === id) {
+							const currQuantity = item.quantity;
+							return {
+								...item,
+								quantity: currQuantity + quantity,
+							};
+						}
+						return item;
+					})
+				);
+			}
+			else {
+				const itemPrice = quantity * price;
+				setCart([...cart, {id, title, quantity, unitPrice: price, price: itemPrice, url}])
+			}
+		}
+		else {
+			console.log("entered, but quantity is 0");
+		}
+		setQuantity(0);
+	};
+
 	return (
 		<div className={styles.card}>
 			<div
@@ -27,9 +56,10 @@ const Card = ({ id, title, price, url, handleQuantity }) => {
 					backgroundPosition: "center",
 					backgroundSize: "120px",
 					borderRadius: "5px 5px 0 0",
-          marginBottom: "auto",
+					marginBottom: "auto",
 				}}
-			aria-label="image of product"></div>
+				aria-label="image of product"
+			></div>
 			<div className={styles.bottomCard}>
 				<div className={styles.price}>
 					<p>${price}</p>
@@ -53,7 +83,7 @@ const Card = ({ id, title, price, url, handleQuantity }) => {
 						<button onClick={increaseQuantity}>+</button>
 					</div>
 					<div>
-						<button className={styles.btn}>Add to cart</button>
+						<button className={styles.btn} onClick={handleAddToCart}>Add to cart</button>
 					</div>
 				</div>
 			</div>
