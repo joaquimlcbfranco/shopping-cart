@@ -8,10 +8,9 @@
 }
 
 .cartWrapper {
-  opacity: 100%;
 	position: fixed;
 	top: 0;
-	right: 0;
+	right: -550px;
 	background-color: rgb(255 255 255);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	height: 100vh;
@@ -20,6 +19,11 @@
 	color: white;
 	font-family: "Tinos", "Chivo", sans-serif;
   overflow-y: scroll;
+  transition: right 0.35s ease-in-out;
+}
+
+.cartWrapper.active {
+  right: 0;
 }
 
 .closeCart {
