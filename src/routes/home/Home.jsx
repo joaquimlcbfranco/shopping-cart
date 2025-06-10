@@ -4,14 +4,15 @@ import product from "../../assets/product.png";
 import Cart from "../../components/cart/Cart.jsx";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { CartContext } from "../../context/CartContext.jsx";
+import { CartContext, CartOpenContext } from "../../context/CartContext.jsx";
 
 const Home = () => {
 	const cartData = useContext(CartContext);
+	const cartOpenData = useContext(CartOpenContext);
 
 	return (
 		<div className={styles.wrapper}>
-			<Header />
+			<Header cartOpen={cartOpenData.cartOpen} setCartOpen={cartOpenData.setCartOpen}/>
 			<main className={styles.mainWrapper}>
 				<div className={styles.homeHero}>
 					<h1>Where convenience</h1>
@@ -21,7 +22,12 @@ const Home = () => {
 				</div>
 				<img src={product} alt="example of website products"></img>
 			</main>
-			<Cart cart={cartData.cart.length !== 0 ? cartData.cart : null} setCart={cartData.cart.length !== 0 ? cartData.setCart : null}/>
+			<Cart
+				cart={cartData.cart.length !== 0 ? cartData.cart : null}
+				setCart={cartData.cart.length !== 0 ? cartData.setCart : null}
+				cartOpen={cartOpenData.cartOpen}
+				setCartOpen={cartOpenData.setCartOpen}
+			/>
 		</div>
 	);
 };
