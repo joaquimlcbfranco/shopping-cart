@@ -88,11 +88,10 @@
 	.cardsGrid {
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(auto-fit, 1fr);
-		margin-bottom: 5em;
 	}
 
 	.feedbackMessage.active {
-		bottom: 20%;
+		bottom: 10%;
 	}
 }
 
