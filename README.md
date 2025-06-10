@@ -1,10 +1,13 @@
 # Shopping Application
 <br>
-This shopping app helped me consolidate my knowledge of React routers, links and hooks like useState and useEffect. 
+This shopping app helped me consolidate my knowledge of react-router, Links and hooks like useState, useEffect and useContext. 
 <br>
 Also learned to keep track of the fetching status and present either a loading or error status based on the response.
 <br>
 Lastly, I used CSS modules to locally style my components and routes, which helped keep the folder structure organized and readable.
+<br>
+Todo: Write tests for the app using vitest and React Testing Library.
+<br>
 
 # Credits
 <br>
