@@ -1,10 +1,27 @@
 .emptyCart {
-  padding: 3em 1em;
-  font-size: 0.8rem;
-  font-family: "Chivo", "Tinos", sans-serif;
-  text-transform: uppercase;
-  color: rgba(1, 50, 50, 0.5);
-  text-align: center;
+	padding: 3em 1em;
+	font-size: 0.8rem;
+	font-family: "Chivo", "Tinos", sans-serif;
+	text-transform: uppercase;
+	color: rgba(1, 50, 50, 0.5);
+	text-align: center;
+}
+
+.leftCart {
+	position: fixed;
+	top: 0;
+	left: 150vw;
+	background-color: rgba(0, 0, 0, 0.3);
+	height: 100vh;
+	width: 72%;
+	z-index: 1;
+	color: white;
+	font-family: "Tinos", "Chivo", sans-serif;
+	transition: left 0.6s ease-in-out;
+}
+
+.leftCart.active {
+	left: 0;
 }
 
 .cartWrapper {
@@ -18,12 +35,13 @@
 	z-index: 1;
 	color: white;
 	font-family: "Tinos", "Chivo", sans-serif;
-  overflow-y: scroll;
-  transition: right 0.35s ease-in-out;
+	transition: right 0.6s ease-in-out;
+	display: flex;
+	flex-direction: column;
 }
 
 .cartWrapper.active {
-  right: 0;
+	right: 0;
 }
 
 .closeCart {
@@ -31,7 +49,7 @@
 	text-transform: uppercase;
 	font-family: "Chivo", "Tinos", sans-serif;
 	border-bottom: 2px solid rgba(1, 50, 50, 0.7);
-  background-color: rgba(1, 50, 50, 0.1);
+	background-color: rgba(1, 50, 50, 0.1);
 }
 
 .closeCart p {
@@ -59,62 +77,62 @@
 }
 
 .item .productImg {
-  height: 90px;
-  width: 90px;
-  background-size: 50px;
-  margin-right: 1em;
-  
+	height: 90px;
+	width: 90px;
+	background-size: 50px;
+	margin-right: 1em;
 }
 
 .items {
-  flex: 1;
+	flex: 1;
+	overflow-y: scroll;
 }
 
 .item {
 	display: flex;
 	align-items: center;
-  border-bottom: 1px solid rgba(1, 50, 50, 0.2);
-  padding: 1em;
-  position: relative;
+	border-bottom: 1px solid rgba(1, 50, 50, 0.2);
+	padding: 1em;
+	position: relative;
 }
 
 .item .removeItem {
-  color: rgb(1, 50, 50);
-  font-family: "Chivo", "Tinos", sans-serif;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: none;
-  border: none;
-  padding: 0.5em 1em;
-  transition: scale 0.2s ease-in-out;
-  cursor: pointer;
+	color: rgb(1, 50, 50);
+	font-family: "Chivo", "Tinos", sans-serif;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: none;
+	border: none;
+	padding: 0.5em 1em;
+	transition: scale 0.2s ease-in-out;
+	cursor: pointer;
 }
 
 .item .removeItem:hover {
-  scale: 1.05;
+	scale: 1.05;
 }
 
 .item .removeItem:active {
-  scale: 0.9
+	scale: 0.9;
 }
 
 .info {
 	display: flex;
 	flex-direction: column;
-  width: 100%;
+	width: 100%;
 }
 
 .item .info p:first-child {
 	font-size: calc(1rem - 0.3vh);
 	margin-bottom: 1em;
 	color: rgb(1, 50, 50);
-  overflow: hidden;
+	overflow: hidden;
 	width: 100%;
 }
 
 .item .amount {
-	flex: 1;
+	flex-grow: 1;
 	display: flex;
 	color: rgb(1, 50, 50);
 	font-size: calc(1rem - 0.3vh);
@@ -127,10 +145,10 @@
 	outline: none;
 	margin-left: 0.5em;
 	text-align: center;
-  width: fit-content;
-  max-width: 60px;
+	width: fit-content;
+	max-width: 60px;
 	height: 20px;
-  padding-left: 1em;
+	padding-left: 1em;
 }
 
 .amount p:last-child {
@@ -139,37 +157,62 @@
 }
 
 .subTotal {
-  font-family: "Chivo", "Tinos", sans-serif;
-  display: flex;
-  align-items: center;
-  padding: 1em;
-  color: rgb(1, 50, 50);
-  background-color: rgba(1, 50, 50, 0.1);
+	font-family: "Chivo", "Tinos", sans-serif;
+	display: flex;
+	align-items: center;
+	padding: 1em;
+	color: rgb(1, 50, 50);
+	background-color: rgba(1, 50, 50, 0.1);
 }
 
 .subTotal p:first-child {
-  
-  text-transform: uppercase;
-  font-size: 0.9rem;
+	text-transform: uppercase;
+	font-size: 0.9rem;
 }
 
 .subTotal p:last-child {
-  margin-left: auto;
-  font-weight: bold;
+	margin-left: auto;
+	font-weight: bold;
+}
+
+.cartBottom {
+	z-index: 10;
 }
 
 .cartBottom button {
-  width: 100%;
-  border: none;
-  padding: 1em;
-  background-color: rgb(1, 50, 50);
-  color: white;
-  text-transform: uppercase;
-  font-family: "Chivo", "Tinos", sans-serif;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+	width: 100%;
+	border: none;
+	padding: 1em;
+	background-color: rgb(1, 50, 50);
+	color: white;
+	text-transform: uppercase;
+	font-family: "Chivo", "Tinos", sans-serif;
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
 }
 
 .cartBottom button:hover {
-  background-color: rgba(1, 70, 70);
+	background-color: rgba(1, 70, 70);
+}
+
+@media (max-width: 767px) {
+	.cartWrapper {
+		width: 100%;
+		padding-bottom: 8em;
+	}
+
+	.input {
+		padding-left: 0;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.cartWrapper {
+		width: 100%;
+    right: -120vw;
+	}
+
+	.input {
+		padding-left: 0;
+	}
 }
