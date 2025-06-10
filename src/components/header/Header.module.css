@@ -4,17 +4,21 @@
 }
 
 .navBar {
+	position: sticky;
+	top: 0;
 	display: flex;
 	align-items: center;
 	font-size: 1.1rem;
 	text-transform: uppercase;
 	font-weight: 300;
-	padding-top: 1.5em;
+	padding-top: 0.7em;
+	padding-bottom: 0.7em;
 	font-family: "Chivo", "Tinos", var(--default-fonts);
-	color: rgb(1, 49, 49);
+	background-color: rgba(255, 255, 255, 0.5);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.navBarLeft {
+.navBarLeft {	
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -60,12 +64,11 @@ a:hover::after {
 	width: 100%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
+	.navBar {
+		font-size: 0.95rem;
+	}
 	.navBarRight {
 		right: 1em;
-	}
-
-	.navBarRight li {
-		display: none;
 	}
 }
