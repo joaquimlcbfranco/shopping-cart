@@ -1,7 +1,7 @@
 import styles from "./Card.module.css";
 import { useState } from "react";
 
-const Card = ({ id, title, price, url, cart, setCart }) => {
+const Card = ({ id, title, price, url, cart, setCart, toggleFeedback }) => {
 	const [quantity, setQuantity] = useState(0);
 
 	const handleChange = (e) => {
@@ -79,6 +79,7 @@ const Card = ({ id, title, price, url, cart, setCart }) => {
 			}
 		}
 		setQuantity(0);
+		toggleFeedback();
 	};
 
 	return (
