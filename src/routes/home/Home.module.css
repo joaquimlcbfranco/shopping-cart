@@ -3,6 +3,7 @@
 	height: 100vh;
 	background: linear-gradient(rgb(220, 220, 220), rgb(255, 255, 255));
 	z-index: -1;
+	overflow: hidden;
 }
 
 .mainWrapper {
@@ -78,7 +79,7 @@
 	z-index: 0;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
 	.mainWrapper img {
 		right: 50%;
 		transform: translateX(50%);
@@ -104,5 +105,21 @@
 	
 	.homeHero a {
 		align-self: center;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.mainWrapper img {
+		height: 600px;
+		width: auto;
+		right: 3em;
+	}
+}
+
+@media (min-width: 1025px) and (max-width: 1600px) {
+	.mainWrapper img {
+		height: 700px;
+		width: auto;
+		right: 1em;
 	}
 }
