@@ -1,7 +1,11 @@
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 
-const Header = ({ cartOpen, setCartOpen }) => {
+const Header = ({ setCartOpen }) => {
+	const handleCartStatus = () => {
+		setCartOpen(true);
+	}
+
 	return (
 		<header className={styles.navBar}>
 			<div className={styles.navBarLeft}>
@@ -20,7 +24,7 @@ const Header = ({ cartOpen, setCartOpen }) => {
 				</ul>
 			</div>
 			<div className={styles.navBarRight}>
-				<a className={styles.headerLinks}>Cart</a>
+				<a className={styles.headerLinks} onClick={handleCartStatus}>Cart</a>
 			</div>
 		</header>
 	);
