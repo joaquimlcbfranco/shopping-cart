@@ -1,7 +1,7 @@
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ cartOpen, setCartOpen }) => {
 	return (
 		<header className={styles.navBar}>
 			<div className={styles.navBarLeft}>
