@@ -4,13 +4,14 @@ import styles from "./Catalog.module.css";
 import Card from "../../components/card/Card.jsx";
 import Cart from "../../components/cart/Cart.jsx";
 import { useState, useEffect, useContext } from "react";
-import { CartContext } from "../../context/CartContext.jsx";
+import { CartContext, CartOpenContext } from "../../context/CartContext.jsx";
 
 const Catalog = () => {
 	const [items, setItems] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const cartData = useContext(CartContext);
+	const cartOpenData = useContext(CartOpenContext);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -58,7 +59,10 @@ const Catalog = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			<Header />
+			<Header
+				cartOpen={cartOpenData.cartOpen}
+				setCartOpen={cartOpenData.setCartOpen}
+			/>
 			<div className={styles.title}>
 				<p>The ultimate catalog for every occasion</p>
 			</div>
@@ -82,6 +86,8 @@ const Catalog = () => {
 			<Cart
 				cart={cartData.cart.length !== 0 ? cartData.cart : null}
 				setCart={cartData.cart.length !== 0 ? cartData.setCart : null}
+				cartOpen={cartOpenData.cartOpen}
+				setCartOpen={cartOpenData.setCartOpen}
 			/>
 		</div>
 	);
