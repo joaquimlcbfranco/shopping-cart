@@ -14,6 +14,8 @@ const Cart = ({ cart, setCart, cartOpen, setCartOpen }) => {
   }
 
 	return (
+    <>
+    <div className={`${styles.leftCart} ${active}`}></div>
 		<div className={`${styles.cartWrapper} ${active}`}>
 			<div aria-label="close-button" className={styles.closeCart}>
 				<p onClick={handleCartStatus}>Close</p>
@@ -46,6 +48,7 @@ const Cart = ({ cart, setCart, cartOpen, setCartOpen }) => {
 				<button>Checkout</button>
 			</div>
 		</div>
+    </>
 	);
 };
 
