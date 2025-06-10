@@ -10,9 +10,18 @@ const Catalog = () => {
 	const [items, setItems] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const [showFeedback, setShowFeedback] = useState(false);
 	const cartData = useContext(CartContext);
 	const cartOpenData = useContext(CartOpenContext);
 
+	const toggleFeedback = () => {
+		setShowFeedback(true);
+		console.log(showFeedback);
+		setTimeout(() => setShowFeedback(false), 1500);
+		console.log(showFeedback);
+	};
+
+	console.log(showFeedback);
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -78,6 +87,7 @@ const Catalog = () => {
 								url={item.url}
 								cart={cartData.cart}
 								setCart={cartData.setCart}
+								toggleFeedback={toggleFeedback}
 							/>
 						);
 					})}
@@ -89,6 +99,13 @@ const Catalog = () => {
 				cartOpen={cartOpenData.cartOpen}
 				setCartOpen={cartOpenData.setCartOpen}
 			/>
+			<div
+				className={`${styles.feedbackMessage} ${
+					showFeedback ? styles.active : ""
+				}`}
+			>
+				Item added to cart
+			</div>
 		</div>
 	);
 };
