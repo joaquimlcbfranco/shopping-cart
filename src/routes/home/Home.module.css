@@ -77,3 +77,32 @@
 	right: 10em;
 	z-index: 0;
 }
+
+@media (max-width: 480px) {
+	.mainWrapper img {
+		right: 50%;
+		transform: translateX(50%);
+		bottom: 0;
+		height: 450px;
+		width: auto;
+	}
+
+	.homeHero {
+		padding: 1em;
+		margin-top: 3em;
+		align-self: flex-start;
+		text-align: center;
+	}
+
+	.homeHero h1 {
+		font-size: 2.5rem;
+	}
+
+	.homeHero p {
+		font-size: 1rem;
+	}
+	
+	.homeHero a {
+		align-self: center;
+	}
+}
