@@ -14,6 +14,7 @@ const Catalog = () => {
 	const cartData = useContext(CartContext);
 	const cartOpenData = useContext(CartOpenContext);
 
+	// Toggles feedback to true when add to cart button is clicked, shows a "added to cart" message
 	const toggleFeedback = () => {
 		setShowFeedback(true);
 		console.log(showFeedback);
@@ -21,12 +22,26 @@ const Catalog = () => {
 		console.log(showFeedback);
 	};
 
-	console.log(showFeedback);
+	// Makes page scrollable if cart is closed, else can't scroll
+	useEffect(() => {
+		if (cartOpenData.cartOpen) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "auto";
+		}
+
+		// Clean up in case component unmounts
+		return () => {
+			document.body.style.overflow = "auto";
+		};
+	}, [cartOpenData.cartOpen]);
+
+	// Fetch product data from API
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const data = await fetch(
-					"https://fakestoreapi.com/products?limit=12"
+					"https://fakestoreapi.com/products?limit=12",
 				);
 				if (data.status >= 400) {
 					throw new Error(
