@@ -4,9 +4,9 @@ import styles from "./Cart.module.css";
 const Cart = ({ cart, setCart }) => {
 	let subTotal = 0;
 
-  if (cart !== null) {
-    cart.map(item => subTotal += (+item.quantity * +item.unitPrice))
-  }
+	if (cart !== null) {
+		cart.map((item) => (subTotal += +item.quantity * +item.unitPrice));
+	}
 
 	return (
 		<div className={styles.cartWrapper}>
@@ -30,9 +30,7 @@ const Cart = ({ cart, setCart }) => {
 						);
 					})}
 				{!cart && (
-					<h1 className={styles.emptyCart}>
-						Your cart is empty
-					</h1>
+					<h1 className={styles.emptyCart}>Your cart is empty</h1>
 				)}
 			</div>
 			<div className={styles.cartBottom}>
@@ -46,15 +44,7 @@ const Cart = ({ cart, setCart }) => {
 	);
 };
 
-const CartItem = ({
-	id,
-	title,
-	quantity,
-	unitPrice,
-	url,
-	cart,
-	setCart,
-}) => {
+const CartItem = ({ id, title, quantity, unitPrice, url, cart, setCart }) => {
 	const [text, setText] = useState(quantity);
 
 	const handleChange = (e) => {
@@ -71,17 +61,21 @@ const CartItem = ({
 		}
 	};
 
-  const removeItem = () => {
-    setCart(cart.filter(item => item.id !== id))
-  }
+	const removeItem = () => {
+		setCart(cart.filter((item) => item.id !== id));
+	};
 
-  useEffect(() => {
-    setText(quantity);
-  }, [quantity])
+	useEffect(() => {
+		setText(quantity);
+	}, [quantity]);
 
 	return (
 		<div className={styles.item}>
-			<button onClick={removeItem} className={styles.removeItem} title="Remove item">
+			<button
+				onClick={removeItem}
+				className={styles.removeItem}
+				title="Remove item"
+			>
 				&#x2715;
 			</button>
 			<div
