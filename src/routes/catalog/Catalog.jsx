@@ -14,6 +14,8 @@ const Catalog = () => {
 	const cartData = useContext(CartContext);
 	const cartOpenData = useContext(CartOpenContext);
 
+	document.title = "Catalog";
+
 	// Toggles feedback to true when add to cart button is clicked, shows a "added to cart" message
 	const toggleFeedback = () => {
 		setShowFeedback(true);

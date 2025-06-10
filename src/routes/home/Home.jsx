@@ -10,6 +10,8 @@ const Home = () => {
 	const cartData = useContext(CartContext);
 	const cartOpenData = useContext(CartOpenContext);
 
+	document.title = "Home"
+
 	return (
 		<div className={styles.wrapper}>
 			<Header cartOpen={cartOpenData.cartOpen} setCartOpen={cartOpenData.setCartOpen}/>
