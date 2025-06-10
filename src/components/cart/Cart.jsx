@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 
-const Cart = ({ cart, setCart }) => {
+const Cart = ({ cart, setCart, cartOpen, setCartOpen }) => {
 	let subTotal = 0;
+  const active = cartOpen ? styles.active : "";
 
 	if (cart !== null) {
 		cart.map((item) => (subTotal += +item.quantity * +item.unitPrice));
 	}
 
+  const handleCartStatus = () => {
+    setCartOpen(false);
+  }
+
 	return (
-		<div className={styles.cartWrapper}>
+		<div className={`${styles.cartWrapper} ${active}`}>
 			<div aria-label="close-button" className={styles.closeCart}>
-				<p>Close</p>
+				<p onClick={handleCartStatus}>Close</p>
 			</div>
 			<div className={styles.items}>
 				{cart !== null &&
