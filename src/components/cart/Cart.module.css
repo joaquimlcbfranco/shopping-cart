@@ -198,6 +198,7 @@
 @media (max-width: 767px) {
 	.cartWrapper {
 		width: 100%;
+		padding-bottom: 7vh;
 	}
 
 	.input {
@@ -208,7 +209,7 @@
 @media (min-width: 768px) and (max-width: 1024px) {
 	.cartWrapper {
 		width: 100%;
-    right: -120vw;
+		right: -120vw;
 	}
 
 	.input {
